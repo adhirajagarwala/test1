@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valentine's Day Invitation 💕</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Cormorant Garamond', serif;
+      min-height: 100vh;
+      background: 
+        linear-gradient(rgba(139, 0, 0, 0.1), rgba(220, 20, 60, 0.15)),
+        linear-gradient(135deg, #8B0000 0%, #DC143C 25%, #FF1493 50%, #FFB6C1 75%, #FFF0F5 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 1.5rem;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Animated hearts background */
+    .hearts-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .heart {
+      position: absolute;
+      font-size: 30px;
+      opacity: 0.3;
+      animation: float 10s ease-in-out infinite;
+      color: #FF1493;
+      text-shadow: 0 0 10px rgba(255, 20, 147, 0.5);
+    }
+
+    .heart:nth-child(1) { left: 5%; animation-delay: 0s; font-size: 25px; }
+    .heart:nth-child(2) { left: 15%; animation-delay: 2s; font-size: 35px; }
+    .heart:nth-child(3) { left: 25%; animation-delay: 4s; font-size: 28px; }
+    .heart:nth-child(4) { left: 35%; animation-delay: 1s; font-size: 32px; }
+    .heart:nth-child(5) { left: 45%; animation-delay: 3s; font-size: 26px; }
+    .heart:nth-child(6) { left: 55%; animation-delay: 5s; font-size: 30px; }
+    .heart:nth-child(7) { left: 65%; animation-delay: 2.5s; font-size: 34px; }
+    .heart:nth-child(8) { left: 75%; animation-delay: 4.5s; font-size: 27px; }
+    .heart:nth-child(9) { left: 85%; animation-delay: 1.5s; font-size: 31px; }
+    .heart:nth-child(10) { left: 95%; animation-delay: 3.5s; font-size: 29px; }
+
+    @keyframes float {
+      0%, 100% { 
+        transform: translateY(100vh) rotate(0deg); 
+        opacity: 0; 
+      }
+      10% { opacity: 0.3; }
+      90% { opacity: 0.3; }
+      100% { 
+        transform: translateY(-150px) rotate(360deg); 
+        opacity: 0; 
+      }
+    }
+
+    /* Rose petals */
+    .rose-petal {
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      background: radial-gradient(ellipse at center, #FF1493 0%, #DC143C 100%);
+      border-radius: 50% 50% 0 50%;
+      opacity: 0.4;
+      animation: petal-fall 12s ease-in-out infinite;
+    }
+
+    .rose-petal:nth-child(11) { left: 10%; animation-delay: 0s; }
+    .rose-petal:nth-child(12) { left: 30%; animation-delay: 2s; }
+    .rose-petal:nth-child(13) { left: 50%; animation-delay: 4s; }
+    .rose-petal:nth-child(14) { left: 70%; animation-delay: 1s; }
+    .rose-petal:nth-child(15) { left: 90%; animation-delay: 3s; }
+
+    @keyframes petal-fall {
+      0% { 
+        transform: translateY(-100px) rotate(0deg); 
+        opacity: 0; 
+      }
+      10% { opacity: 0.4; }
+      90% { opacity: 0.4; }
+      100% { 
+        transform: translateY(100vh) rotate(720deg); 
+        opacity: 0; 
+      }
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 850px;
+      width: 100%;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 240, 245, 0.98) 100%);
+      backdrop-filter: blur(20px);
+      border-radius: 20px;
+      box-shadow: 
+        0 30px 90px rgba(139, 0, 0, 0.4),
+        0 0 0 1px rgba(220, 20, 60, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+      border: 3px solid rgba(220, 20, 60, 0.3);
+      animation: fadeIn 1.5s ease-out;
+      overflow: hidden;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(40px) scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    /* Decorative header */
+    .header-decoration {
+      background: linear-gradient(135deg, #8B0000 0%, #DC143C 50%, #FF1493 100%);
+      padding: 3rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header-decoration::before {
+      content: '❤️';
+      position: absolute;
+      top: 1rem;
+      left: 2rem;
+      font-size: 2rem;
+      opacity: 0.3;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    .header-decoration::after {
+      content: '❤️';
+      position: absolute;
+      top: 1rem;
+      right: 2rem;
+      font-size: 2rem;
+      opacity: 0.3;
+      animation: pulse 2s ease-in-out infinite 1s;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 0.3; }
+      50% { transform: scale(1.2); opacity: 0.5; }
+    }
+
+    .main-title {
+      font-family: 'Great Vibes', cursive;
+      font-size: 4.5rem;
+      color: #FFF;
+      margin-bottom: 0.5rem;
+      text-shadow: 
+        0 0 20px rgba(255, 255, 255, 0.5),
+        0 2px 4px rgba(0, 0, 0, 0.3);
+      animation: glow 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+      from { 
+        text-shadow: 
+          0 0 20px rgba(255, 255, 255, 0.5),
+          0 2px 4px rgba(0, 0, 0, 0.3);
+      }
+      to { 
+        text-shadow: 
+          0 0 30px rgba(255, 255, 255, 0.8),
+          0 0 40px rgba(255, 182, 193, 0.6),
+          0 2px 4px rgba(0, 0, 0, 0.3);
+      }
+    }
+
+    .subtitle {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      color: rgba(255, 255, 255, 0.95);
+      font-weight: 400;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .heart-divider {
+      text-align: center;
+      margin: 2rem 0;
+      font-size: 1.5rem;
+      color: #DC143C;
+    }
+
+    /* Main content */
+    .invitation-content {
+      padding: 3.5rem 3rem;
+    }
+
+    .formal-greeting {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: #8B0000;
+      text-align: center;
+      margin-bottom: 2rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .formal-text {
+      font-size: 1.25rem;
+      line-height: 2.2;
+      color: #2C1810;
+      text-align: center;
+      margin-bottom: 2.5rem;
+      font-weight: 500;
+    }
+
+    .event-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      color: #8B0000;
+      text-align: center;
+      margin: 2.5rem 0 2rem 0;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border-top: 2px solid rgba(220, 20, 60, 0.3);
+      border-bottom: 2px solid rgba(220, 20, 60, 0.3);
+      padding: 1.5rem 0;
+    }
+
+    .hosted-by {
+      font-size: 1.15rem;
+      text-align: center;
+      color: #DC143C;
+      margin-bottom: 2.5rem;
+      font-style: italic;
+      font-weight: 600;
+    }
+
+    .details-section {
+      background: linear-gradient(135deg, rgba(255, 240, 245, 0.8) 0%, rgba(255, 228, 225, 0.8) 100%);
+      padding: 2.5rem;
+      border-radius: 15px;
+      margin: 2rem 0;
+      border: 2px solid rgba(220, 20, 60, 0.2);
+      box-shadow: 0 10px 30px rgba(139, 0, 0, 0.1);
+    }
+
+    .detail-row {
+      display: flex;
+      align-items: baseline;
+      margin-bottom: 1.8rem;
+      font-size: 1.2rem;
+    }
+
+    .detail-label {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      color: #8B0000;
+      min-width: 180px;
+      font-size: 1.3rem;
+    }
+
+    .detail-value {
+      color: #2C1810;
+      font-weight: 500;
+      flex: 1;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: #8B0000;
+      margin: 2.5rem 0 1.5rem 0;
+      font-weight: 700;
+      text-align: center;
+      letter-spacing: 1px;
+    }
+
+    .itinerary-item {
+      padding: 1.2rem 1.5rem;
+      margin: 1rem 0;
+      background: rgba(255, 255, 255, 0.7);
+      border-left: 4px solid #DC143C;
+      border-radius: 8px;
+      font-size: 1.15rem;
+      color: #2C1810;
+      font-weight: 500;
+      line-height: 1.8;
+    }
+
+    .special-note {
+      background: linear-gradient(135deg, rgba(139, 0, 0, 0.08) 0%, rgba(220, 20, 60, 0.08) 100%);
+      padding: 2rem;
+      border-radius: 12px;
+      margin: 2.5rem 0;
+      border: 2px dashed rgba(220, 20, 60, 0.4);
+      font-size: 1.2rem;
+      line-height: 2;
+      color: #2C1810;
+      text-align: center;
+      font-weight: 500;
+    }
+
+    .signature {
+      text-align: right;
+      margin-top: 3rem;
+      padding-right: 2rem;
+    }
+
+    .signature-name {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3rem;
+      color: #8B0000;
+      margin-bottom: 0.5rem;
+    }
+
+    .signature-title {
+      font-size: 1.1rem;
+      color: #DC143C;
+      font-style: italic;
+      font-weight: 600;
+    }
+
+    /* Question screen */
+    .question-screen {
+      text-align: center;
+      padding: 3rem 2rem;
+    }
+
+    .question-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: #2C1810;
+      margin: 2rem 0;
+      line-height: 1.8;
+      font-weight: 600;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      margin-top: 3rem;
+    }
+
+    .btn {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      padding: 1.5rem 4rem;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      font-size: 1.4rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.4);
+      transform: translate(-50%, -50%);
+      transition: width 0.6s, height 0.6s;
+    }
+
+    .btn:hover::before {
+      width: 400px;
+      height: 400px;
+    }
+
+    .btn span {
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn-yes {
+      background: linear-gradient(135deg, #8B0000 0%, #DC143C 50%, #FF1493 100%);
+      color: white;
+    }
+
+    .btn-yes:hover {
+      transform: scale(1.08);
+      box-shadow: 0 15px 40px rgba(220, 20, 60, 0.6);
+    }
+
+    .btn-no {
+      background: linear-gradient(135deg, #FFB6C1 0%, #FFC0CB 100%);
+      color: #8B0000;
+    }
+
+    .btn-no:hover {
+      transform: scale(1.05);
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    @media (max-width: 768px) {
+      .main-title {
+        font-size: 3rem;
+      }
+      
+      .detail-row {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      
+      .detail-label {
+        min-width: auto;
+      }
+      
+      .invitation-content {
+        padding: 2rem 1.5rem;
+      }
+      
+      .buttons {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Animated hearts and petals -->
+  <div class="hearts-container">
+    <span class="heart">❤️</span>
+    <span class="heart">💕</span>
+    <span class="heart">💗</span>
+    <span class="heart">❤️</span>
+    <span class="heart">💕</span>
+    <span class="heart">💗</span>
+    <span class="heart">❤️</span>
+    <span class="heart">💕</span>
+    <span class="heart">💗</span>
+    <span class="heart">❤️</span>
+    <span class="rose-petal"></span>
+    <span class="rose-petal"></span>
+    <span class="rose-petal"></span>
+    <span class="rose-petal"></span>
+    <span class="rose-petal"></span>
+  </div>
+
+  <!-- Question Screen -->
+  <div class="container question-screen" id="questionScreen">
+    <div class="header-decoration">
+      <h1 class="main-title">Baby</h1>
+      <p class="subtitle">A Question Awaits</p>
+    </div>
+    
+    <div style="padding: 3rem 2rem;">
+      <p class="question-text">
+        Will you do me the extraordinary honor of being my Valentine?
+      </p>
+      
+      <div class="buttons">
+        <button class="btn btn-yes" id="yesBtn">
+          <span>Yes, With All My Heart ❤️</span>
+        </button>
+        <button class="btn btn-no" id="noBtn">
+          <span>No</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Invitation Screen -->
+  <div class="container hidden" id="invitationScreen">
+    <div class="header-decoration">
+      <h1 class="main-title">Valentine's Day</h1>
+      <p class="subtitle">Formal Invitation</p>
+    </div>
+
+    <div class="invitation-content">
+      <p class="formal-greeting">
+        Baby,
+      </p>
+
+      <p class="formal-text">
+        I was going to write this by hand. Pen and paper, the whole romantic gesture. But then I realized this way I could make it more elaborate, more fitting for what we're actually celebrating. So here we are.
+      </p>
+
+      <p class="formal-text">
+        You're invited to spend Valentine's Day with me. Virtually, yes, but that's never stopped us before. This is our first one as an actual couple, and I plan to make it memorable.
+      </p>
+
+      <div class="heart-divider">❤️ ✦ ❤️</div>
+
+      <h2 class="event-title">
+        Valentine's Day with Your Boyfriend
+      </h2>
+
+      <p class="hosted-by">
+        Who Loves You More Than Words Can Say<br>
+        And Plans to Prove It All Night Long
+      </p>
+
+      <div class="details-section">
+        <div class="detail-row">
+          <span class="detail-label">When:</span>
+          <span class="detail-value">February 14th, 2025 at 7:00 PM</span>
+        </div>
+        
+        <div class="detail-row">
+          <span class="detail-label">Where:</span>
+          <span class="detail-value">Your place and mine, connected by FaceTime like always</span>
+        </div>
+        
+        <div class="detail-row">
+          <span class="detail-label">Dinner:</span>
+          <span class="detail-value">Whatever you want from DoorDash. My treat. We'll order the same thing and eat together like we always do, except this time with candles and the full romantic setup.</span>
+        </div>
+        
+        <div class="detail-row">
+          <span class="detail-label">Movie:</span>
+          <span class="detail-value">Something we pick together. Something romantic, or funny, or whatever we're in the mood for. Let's be honest though, we'll probably talk through the whole thing anyway.</span>
+        </div>
+        
+        <div class="detail-row">
+          <span class="detail-label">What to Wear:</span>
+          <span class="detail-value">Our six-month anniversary hoodie. Just the hoodie. Nothing else. You know exactly what I mean.</span>
+        </div>
+      </div>
+
+      <h3 class="section-title">How the Night Will Go</h3>
+
+      <div class="itinerary-item">
+        <strong>7:00 PM</strong> We both open DoorDash at the same time and figure out what we're eating. I'm thinking something nice, something we can actually enjoy instead of inhaling in five minutes like that $100 dinner in New York.
+      </div>
+
+      <div class="itinerary-item">
+        <strong>7:30 PM</strong> Dinner arrives. We set up candles (you better actually light candles, I'm serious). We eat together on FaceTime. I tell you how beautiful you look. You tell me to stop being cheesy. I don't stop.
+      </div>
+
+      <div class="itinerary-item">
+        <strong>8:30 PM</strong> Movie time. We pick something together, get comfortable, and settle in. I'm already planning to spend half the movie just looking at you on my screen instead of watching.
+      </div>
+
+      <div class="itinerary-item">
+        <strong>10:00 PM</strong> The movie ends, or we gave up on it halfway through because we were too busy talking. Either way, this is when things get interesting. This is Valentine's Day, baby. You know where this is going.
+      </div>
+
+      <div class="itinerary-item">
+        <strong>11:00 PM onwards</strong> I'm going to make you forget we're in different states. I'm going to make you wish I was there in person so badly it hurts. And then I'm going to make it worth the wait until we see each other again. Virtual or not, I know exactly how to make you fall apart for me.
+      </div>
+
+      <div class="special-note">
+        <strong>Here's what you need to know:</strong><br><br>
+        This is our first Valentine's Day together. After six months of making long distance work, after all the late night calls and the missing you and the countdowns until we see each other again, you deserve to be celebrated properly.<br><br>
+        So yes, we're doing the romantic dinner. Yes, we're doing the movie. Yes, I'm going to tell you I love you approximately a thousand times. But we're also doing the other stuff. The stuff that makes you bite your lip and look at me like that. The stuff that proves distance is just a number when the connection is this strong.<br><br>
+        Expect me to be romantic. Expect me to be affectionate. Expect me to worship you with words until you're blushing through the screen. And then expect me to get filthy enough to make up for not being able to touch you in person.<br><br>
+        It's Valentine's Day. We're in love. We're going to celebrate both of those facts thoroughly.
+      </div>
+
+      <div class="heart-divider">❤️ ✦ ❤️</div>
+
+      <p class="formal-text" style="margin-top: 2.5rem;">
+        Say yes. Get ready for 7 PM. Wear the hoodie and nothing else. Let me make this Valentine's Day one you'll remember.
+      </p>
+
+      <div class="signature">
+        <div class="signature-name">Adhiraj</div>
+        <div class="signature-title">Your Valentine, Your Boyfriend, Yours Completely</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const reasons = [
+      "Because I've spent weeks planning this and you're really going to say no? 💔",
+      "Because it's Valentine's Day and I'm literally your boyfriend 😤",
+      "Because that hoodie looks better on you than anyone else 🔥",
+      "Because I already ordered your favorite food (okay fine, not yet, but I will) 🍜",
+      "Because six months of long distance deserves a proper celebration ❤️",
+      "Because I promise the 'intimate activities' part will be worth it 😏",
+      "Because saying no is just delaying the inevitable, baby 💕",
+      "Because I know exactly what you're wearing under that hoodie 👀",
+      "Because we both know how this ends... with you saying yes 😘",
+      "Because I'm not above begging and you know it 🙏",
+      "Because the DoorDash budget is already crying, don't make it cry for nothing 💸",
+      "Because Tolly Club didn't raise quitters and neither did we 💪",
+      "Because your neck misses me (and I miss it too) 💋",
+      "Because virtual date nights with you > literally anything else 🌟",
+      "Okay at this point you're just being difficult. Say yes. 😂"
+    ];
+
+    const yesBtn = document.getElementById('yesBtn');
+    const noBtn = document.getElementById('noBtn');
+    const questionScreen = document.getElementById('questionScreen');
+    const invitationScreen = document.getElementById('invitationScreen');
+    const questionText = document.querySelector('.question-text');
+
+    let noCount = 0;
+
+    noBtn.addEventListener('click', () => {
+      noCount++;
+      
+      // Change question
+      questionText.style.opacity = '0';
+      setTimeout(() => {
+        questionText.textContent = reasons[Math.floor(Math.random() * reasons.length)];
+        questionText.style.opacity = '1';
+      }, 300);
+
+      // Make Yes bigger, No smaller
+      const yesScale = 1 + (noCount * 0.15);
+      const noScale = Math.max(0.5, 1 - (noCount * 0.1));
+      
+      yesBtn.style.transform = `scale(${yesScale})`;
+      noBtn.style.transform = `scale(${noScale})`;
+
+      if (noCount >= 5) {
+        yesBtn.style.boxShadow = '0 0 50px rgba(220, 20, 60, 0.8), 0 0 100px rgba(220, 20, 60, 0.4)';
+      }
+
+      if (noCount >= 8) {
+        noBtn.innerHTML = '<span>?</span>';
+        noBtn.style.opacity = '0.4';
+      }
+    });
+
+    yesBtn.addEventListener('click', () => {
+      questionScreen.classList.add('hidden');
+      invitationScreen.classList.remove('hidden');
+      
+      // Smooth scroll to top
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Smooth opacity transition for question
+    questionText.style.transition = 'opacity 0.3s ease';
+  </script>
+</body>
+</html>
